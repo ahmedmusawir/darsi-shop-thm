@@ -15,7 +15,7 @@
  * @package Moose_Framework
  */
 
-get_header('home'); ?>
+get_header(); ?>
 
 <!--=====================================
 =            TOP IMAGE MODAL            =
@@ -81,77 +81,7 @@ get_header('home'); ?>
 
 	<main class="container">
 		
-		<div class="flex-content-box">
-
-			<article class="flex-item">
-
-				<div class="icon-box-holder text-center">
-					<div class="icon-box center-block">
-						<i class="fa <?php the_field('optin_left_icon'); ?> fa-5x"></i>
-					</div>					
-				</div>
-
-				<h1 class="headline text-center">
-					<?php the_field('optin_left_headline'); ?>
-				</h1>
-
-				<p class="text-only text-center">
-					<?php the_field('optin_left_text'); ?>
-				</p>
-
-				<div class="btn-holder text-center">
-					<!-- <a class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#myModal-hero" ><?php the_field('optin_left_button_text'); ?></a> -->
-					<a class="btn btn-primary btn-lg" href="<?php the_field('optin_left_button_url') ?>"><?php the_field('optin_left_button_text'); ?></a>
-				</div>
-				
-				
-			</article>
-			<article class="flex-item">
-
-				<div class="icon-box-holder text-center">
-					<div class="icon-box center-block">
-						<i class="fa <?php the_field('optin_center_icon'); ?> fa-5x"></i>
-					</div>					
-				</div>
-
-				<h1 class="headline text-center">
-					<?php the_field('optin_center_headline'); ?>
-				</h1>
-
-				<p class="text-only text-center">
-					<?php the_field('optin_center_text'); ?>
-				</p>
-
-				<div class="btn-holder text-center">
-					<a class="btn btn-primary btn-lg" href="<?php the_field('optin_center_button_url') ?>"><?php the_field('optin_center_button_text'); ?></a>
-				</div>
-				
-				
-			</article>
-			<article class="flex-item">
-
-				<div class="icon-box-holder text-center">
-					<div class="icon-box center-block">
-						<i class="fa <?php the_field('optin_right_icon'); ?> fa-5x"></i>
-					</div>					
-				</div>
-
-				<h1 class="headline text-center">
-					<?php the_field('optin_right_headline'); ?>
-				</h1>
-
-				<p class="text-only text-center">
-					<?php the_field('optin_right_text'); ?>
-				</p>
-
-				<div class="btn-holder text-center">
-					<a class="btn btn-primary btn-lg" href="<?php the_field('optin_right_button_url') ?>"><?php the_field('optin_right_button_text'); ?></a>
-				</div>
-				
-				
-			</article>			
-			
-		</div>
+		
 
 	</main>
 	
@@ -161,56 +91,7 @@ get_header('home'); ?>
 
 	<main class="container">
 		
-		<div class="content-box">
-
-			<h1 class="headline text-center"><?php the_field('info_block_headline'); ?></h1>
-
-			<div class=" col-sm-6 col-md-3 col-lg-3">
-				<article class="text-box">
-					
-					<div class="text-only">
-
-						<?php the_field('info_block_text_box_1') ?>
-						
-					</div>
-
-				</article>				
-			</div>
-			<div class=" col-sm-6 col-md-3 col-lg-3">
-				<article class="text-box">
-					
-					<div class="text-only">
-
-						<?php the_field('info_block_text_box_2') ?>
-						
-					</div>
-
-				</article>				
-			</div>
-			<div class=" col-sm-6 col-md-3 col-lg-3">
-				<article class="text-box">
-					
-					<div class="text-only">
-
-						<?php the_field('info_block_text_box_3') ?>
-						
-					</div>
-
-				</article>				
-			</div>
-			<div class=" col-sm-6 col-md-3 col-lg-3">
-				<article class="text-box">
-					
-					<div class="text-only">
-
-						<?php the_field('info_block_text_box_4') ?>
-						
-					</div>
-
-				</article>				
-			</div>
-
-		</div>
+		
 
 	</main>	
 	
@@ -220,87 +101,7 @@ get_header('home'); ?>
 
 	<main class="container">
 		
-		<div class="content-box">
-
-			<h1 class="headline text-center"><?php the_field('testimonial_headline'); ?></h1>
-
-				<article id="testimonial-slider">
-
-						<div id="carousel-example-captions" class="carousel slide" data-ride="carousel" data-interval="false">
-						   <ol class="carousel-indicators">
-
-								<?php if (get_field('home_testimonial_list')) :  $i = 0;  ?>
-
-									<?php while(has_sub_field('home_testimonial_list')) :  ?>
-
-									<?php if ( $i == 0 ) : ?>
-
-										<li data-target="#carousel-example-captions" data-slide-to="<?php echo $i; ?>" class="caption-image active">
-
-									<?php else : ?>
-
-										<li data-target="#carousel-example-captions" data-slide-to="<?php echo $i; ?>" class="caption-image">
-
-									<?php endif; ?>	
-
-								      		<img class="img-responsive center-block img-circle" src="<?php the_sub_field( 'home_testimonial_client_image' ); ?>" alt="">
-
-								      	</li>
-
-								    <?php $i++; ?> 	
-
-									<?php endwhile;  ?>
-
-									<?php //reset_rows(); ?>	
-
-								<?php endif; ?>															   
-						      
-						   </ol>
-						   <div class="carousel-inner" role="listbox">
-
-						   <?php if (get_field('home_testimonial_list')) :  $i = 0; ?>
-
-								<?php while(has_sub_field('home_testimonial_list')) : $i++; ?>
-
-									<?php if ( $i == 1 ) : ?>
-
-										<div class="item active">
-
-									<?php else : ?>
-
-										<div class="item">
-
-									<?php endif; ?>	
-
-									      	<img class="img-responsive center-block img-circle" src="<?php the_sub_field( 'home_testimonial_client_image' ); ?>" alt="">
-									      	<i class="fa fa-quote-left pull-left" aria-hidden="true"></i>
-									      	<h4 class="text-center">
-									      		<?php the_sub_field( 'home_testimonial_client_text' ); ?>
-									      	</h4>
-									         <div class="moose-caption">
-									            <h3><?php the_sub_field( 'home_testimonial_client_name' ); ?></h3>
-									            <p><?php the_sub_field( 'home_testimonial_client_description' ); ?></p>
-									         </div>
-								      	
-								      	</div>
-
-									
-								<?php endwhile ?>	
-
-							<?php endif; ?>	
-
-						      						      							      							      
-						   </div>
-						   <a class="left carousel-control" href="#carousel-example-captions" role="button" data-slide="prev"> 
-						   <i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
-								<span class="sr-only">Previous</span> </a> 
-								<a class="right carousel-control" href="#carousel-example-captions" role="button" data-slide="next"> 
-								<i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i> <span class="sr-only">Next</span> </a> 
-						</div>
-										
-				</article>			
-
-		</div>
+		
 
 	</main>	
 	
